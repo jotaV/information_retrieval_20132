@@ -1,28 +1,49 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Sem Cabresto</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-  </head>
-  <body>
+<!doctype html>
+<html lang="pt-BR">
 
-  <header>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %} Sem Cabresto {% endblock%}</title>
+
+  <script type="text/javascript" src="/static/js/jquery.mim.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.mim.js"></script>
+
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/static/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <h1 class="logo">Sem Cabresto</h1>
-      <nav>
-        <ul class="menu">
-          <li><a href="{{ url_for('search') }}">Pesquisa</a></li>
-          <li><a href="{{ url_for('advancedSearch') }}">Pesquisa avançada</a></li>
-          <li><a href="{{ url_for('about') }}">About</a></li>
+      
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{url_for('search')}}"><b>SEM CABRESTO</b></a>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="{{ url_for('advancedSearch') }}">Pesquisar Avançada</a></li>
+          <li><a href="{{ url_for('about') }}">Sem Cabresto?</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
 
-    <div class="container">
-      {% block content %}
-      {% endblock %}
+         <form class="navbar-form navbar-left pull-right" role="search" action="{{url_for('result')}}">
+            <div class="input-group" style="width: 300px">
+              <input type="text" name="nome" class="form-control" placeholder="Pesquise rapida...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            </div>
+        </form>
+      </div>
     </div>
+  </nav>
 
-  </body>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+
 </html>

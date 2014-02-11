@@ -1,10 +1,24 @@
 {% extends "layout.html" %}
 
-{% block content %}
-  <h2>Resultado</h2>
-  
-  {% for result in resultados %}
-    {{result.nome}}
-  {% endfor %}
-
+{% block content %}  
+  <table class="table table-striped">
+  	{% for result in results %}
+  	<tr>
+  		<th><img data-src="holder.js/140x140" class="img-rounded" alt="140x140" style="width: 140px; height: 140px;" src="/static/img/image.png"></th>
+  		<th>
+  			<h4><a href="{{url_for('pagina', nome='PT')}}" class="nome" data-toggle="modal" data-target="#myModal" onClick="toModal">{{result.nome}}</a></h4>
+  			<div style="width: 100%; margin: 10px 0;">
+	  			<table style="width: 100%;">
+					  <tr style="width: 100%;">
+					  	<th><span class="partido"><b>Partido:</b> {{result.partido}}</span></th>
+					  	<th><span class="diplomacao"><b>Diplomacao:</b> {{result.diplomacao}}</span></th>
+					  	<th><span class="estado"><b>Estado:</b> {{result.estado}}</span></th>
+					  </tr>
+					</table>  				
+  			</div>
+  			<p class="biografia">{{result.biografia}}</p>
+  		</th>
+  	</tr>
+  	{% endfor %}
+	</table>
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% set result = results[0] %}
+    
+    <table>
+    	<tr>
+    		<th><img data-src="holder.js/140x140" class="img-rounded" alt="140x140" style="width: 140px; height: 140px;" src="/static/img/image.png"></th>
+    		<th><h2>{{result.nome}}</h2></th>
+    	</tr>
+    	<tr>
+    		<table style="width: 100%;">
+          <tr style="width: 100%;">
+            <th><span class="partido"><b>Partido:</b> {{result.partido}}</span></th>
+            <th><span class="diplomacao" style="text-align: center;"><b>Diplomacao:</b> {{result.diplomacao}}</span></th>
+            <th><span class="estado" style="text-align: right;"><b>Estado:</b> {{result.estado}}</span></th>
+          </tr>
+        </table>
+    	</tr>
+    	<tr>
+    		<th>
+    			<p class="biografia">{{result.biografia}}</p>
+    		</th>
+    	</tr>
+            
+{% endblock %}
